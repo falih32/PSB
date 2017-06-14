@@ -1,0 +1,22 @@
+-- QUERY LOGIN
+-- 1. get tahun
+select ifnull((SELECT YEAR(pgd_time_updated) as tahun
+                FROM t_pengadaan ORDER BY tahun LIMIT 1),(select year(NOW()) from dual)) as thn from dual
+				
+-- QUERY PENGADAAN
+--  1. list pengadaan 
+SELECT t_pengadaan.*, t_draft_pengadaan.*, spl_nama, pgw_nama, DATE_FORMAT(drp_tanggal_input,"%e %M %Y")
+FROM t_pengadaan, t_draft_pengadaan
+LEFT JOIN tr_draft_penyusun
+ON  dpy_draft = drp_id
+AND dpy_jabatan = '0'
+LEFT JOIN t_pegawai
+ON  pgw_id = dpy_pegawai
+LEFT JOIN tr_draft_supplier
+ON  dsp_draft = drp_id
+LEFT JOIN t_supplier
+ON  dsp_supplier = spl_id
+WHERE drp_terpilih = '1'
+AND drp_pengadaan = pgd_id
+AND pgd_deleted = 0
+AND YEAR(drp_tanggal_input) = 2015
