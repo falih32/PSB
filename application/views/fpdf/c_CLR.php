@@ -28,7 +28,6 @@ $pdf->AddPage();
                 $pdf->SetFont('Arial','',11);
                 $pdf->Cell(50,5,'Nama Lengkap',0,0,'L'); $pdf->Cell(3,5,':',0,0,'L'); $pdf->Cell(120,5,$datasiswa->tmb_nama,0,1,'L');
                 $pdf->Cell(50,5,'Nomor Induk Nasional',0,0,'L'); $pdf->Cell(3,5,':',0,0,'L'); $pdf->Cell(120,5,$datasiswa->tmb_nisn,0,1,'L'); 
-                $pdf->Cell(50,5,'Nomor Induk Sekolah Asal',0,0,'L'); $pdf->Cell(3,5,':',0,0,'L'); $pdf->Cell(120,5,$datasiswa->tmb_nisa,0,1,'L');
                 $pdf->Cell(50,5,'Tempat & Tanggal Lahir',0,0,'L'); $pdf->Cell(3,5,':',0,0,'L'); $pdf->Cell(120,5,$datasiswa->tmb_tempatL.' '.$pdf->tanggal('d - M - Y', $datasiswa->tmb_ttl) ,0,1,'L');
                 $pdf->Cell(50,5,'Jumlah Saudara',0,0,'L'); $pdf->Cell(3,5,':',0,0,'L'); $pdf->Cell(40,5,'Kandung : '.$datasiswa->tmb_sdrk,0,0,'L'); $pdf->Cell(40,5,'Tiri : '.$datasiswa->tmb_sdrt,0,1,'L');
                 if($datasiswa->tmb_stsdkel==1){ $status='kandung';}else if(($datasiswa->tmb_stsdkel==2)){$status='tiri';}else if(($datasiswa->tmb_stsdkel==3)){$status='angkat';}
@@ -36,8 +35,39 @@ $pdf->AddPage();
                 $pdf->Cell(50,5,'Alamat',0,0,'L');$pdf->Cell(3,5,':',0,0,'L'); $pdf->MultiCell(0,5,$datasiswa->tmb_alamat,0,'J');
                 $pdf->Cell(50,5,'Kecamatan',0,0,'R'); $pdf->Cell(3,5,':',0,0,'L'); $pdf->Cell(120,5,$datasiswa->tmb_kec,0,1,'L');
                 $pdf->Cell(50,5,'Kabupaten/Kota',0,0,'R'); $pdf->Cell(3,5,':',0,0,'L'); $pdf->Cell(120,5,$datasiswa->tmb_kota,0,1,'L');
-                $pdf->Cell(50,5,'Telp./Hp',0,0,'L'); $pdf->Cell(3,5,':',0,0,'L'); $pdf->Cell(120,5,$datasiswa->tmb_telp ,0,0,'L'); 
+                $pdf->Cell(50,5,'Hobi',0,0,'L'); $pdf->Cell(3,5,':',0,0,'L'); $pdf->Cell(120,5,$datasiswa->tmb_hobi,0,1,'L');
+                $pdf->Cell(50,5,'Cita-Cita',0,0,'L'); $pdf->Cell(3,5,':',0,0,'L'); $pdf->Cell(120,5,$datasiswa->tmb_cita,0,1,'L');
+                
+                 if($datasiswa->tmb_transport == 0){
+                    $transport = "Jalan Kaki";
+                }else if($datasiswa->tmb_transport == 1){
+                    $transport = "Sepeda";
+                }else if($datasiswa->tmb_transport ==2){
+                    $transport = "Motor";
+                }else if($datasiswa->tmb_transport ==3){
+                    $transport= "Mobil Pribadi";
+                }else if($datasiswa->tmb_kelas ==4){
+                    $transport = "Antar Jemput";
+                }else if($datasiswa->tmb_kelas ==5){
+                    $transport = "Angkutan Umum";
+                }
+                
+                $pdf->Cell(50,5,'Transport',0,0,'L'); $pdf->Cell(3,5,':',0,0,'L'); $pdf->Cell(120,5,$transport,0,1,'L');
                
+                 if($datasiswa->tmb_jarak == 0){
+                    $jarak = "0-1 KM";
+                }else if($datasiswa->tmb_jarak == 1){
+                    $jarak = "1-3 KM";
+                }else if($datasiswa->tmb_jarak ==2){
+                    $jarak = "3-5 KM";
+                }else if($datasiswa->tmb_jarak ==3){
+                    $jarak= "5-10 KM";
+                }else if($datasiswa->tmb_jarak ==4){
+                    $jarak = "Lebih dari 10 KM";
+                }
+                
+                $pdf->Cell(50,5,'Transport',0,0,'L'); $pdf->Cell(3,5,':',0,0,'L'); $pdf->Cell(120,5,$jarak,0,1,'L');
+                
                 $pdf->SetFont('Arial','B',12);
                 $pdf->Ln(8);
                 $pdf->Cell(0,10,'B. ORANG TUA',0,2,'L');
@@ -52,15 +82,15 @@ $pdf->AddPage();
                 $pdf->Cell(50,5,'Kabupaten/Kota',0,0,'R'); $pdf->Cell(3,5,':',0,0,'L'); $pdf->Cell(120,5,$datasiswa->tmb_kota_ortu,0,1,'L');
                 $pdf->Cell(50,5,'Telp./Hp',0,0,'L'); $pdf->Cell(3,5,':',0,0,'L'); $pdf->Cell(120,5,$datasiswa->tmb_telp_ortu ,0,0,'L'); 
                
-                $pdf->SetFont('Arial','B',12);
-                $pdf->Ln(6);
-                $pdf->Cell(0,10,'C. WALI',0,2,'L');
-                $pdf->SetFont('Arial','',11);
-                $pdf->Cell(50,5,'Nama',0,0,'L'); $pdf->Cell(3,5,':',0,0,'L'); $pdf->Cell(120,5,$datasiswa->tmb_wali ,0,1,'L'); 
-                $pdf->Cell(50,5,'Alamat',0,0,'L');$pdf->Cell(3,5,':',0,0,'L'); $pdf->MultiCell(0,5,$datasiswa->tmb_alamat_wali,0,'J');
-                $pdf->Cell(50,5,'Kecamatan',0,0,'R'); $pdf->Cell(3,5,':',0,0,'L'); $pdf->Cell(120,5,$datasiswa->tmb_kec_wali,0,1,'L');
-                $pdf->Cell(50,5,'Kabupaten/Kota',0,0,'R'); $pdf->Cell(3,5,':',0,0,'L'); $pdf->Cell(120,5,$datasiswa->tmb_kota_wali,0,1,'L');
-                $pdf->Cell(50,5,'Telp./Hp',0,0,'L'); $pdf->Cell(3,5,':',0,0,'L'); $pdf->Cell(120,5,$datasiswa->tmb_telp_wali ,0,1,'L'); 
+//                $pdf->SetFont('Arial','B',12);
+//                $pdf->Ln(6);
+//                $pdf->Cell(0,10,'C. WALI',0,2,'L');
+//                $pdf->SetFont('Arial','',11);
+//                $pdf->Cell(50,5,'Nama',0,0,'L'); $pdf->Cell(3,5,':',0,0,'L'); $pdf->Cell(120,5,$datasiswa->tmb_wali ,0,1,'L'); 
+//                $pdf->Cell(50,5,'Alamat',0,0,'L');$pdf->Cell(3,5,':',0,0,'L'); $pdf->MultiCell(0,5,$datasiswa->tmb_alamat_wali,0,'J');
+//                $pdf->Cell(50,5,'Kecamatan',0,0,'R'); $pdf->Cell(3,5,':',0,0,'L'); $pdf->Cell(120,5,$datasiswa->tmb_kec_wali,0,1,'L');
+//                $pdf->Cell(50,5,'Kabupaten/Kota',0,0,'R'); $pdf->Cell(3,5,':',0,0,'L'); $pdf->Cell(120,5,$datasiswa->tmb_kota_wali,0,1,'L');
+//                $pdf->Cell(50,5,'Telp./Hp',0,0,'L'); $pdf->Cell(3,5,':',0,0,'L'); $pdf->Cell(120,5,$datasiswa->tmb_telp_wali ,0,1,'L'); 
                 
                 
                 $pdf->SetFont('Arial','B',12);
@@ -103,9 +133,9 @@ $pdf->AddPage();
                 }
     
                 $pdf->Cell(50,5,'Dari Kelas',0,0,'L'); $pdf->Cell(3,5,':',0,0,'L'); $pdf->Cell(120,5,$kelas ,0,1,'L');
-                $pdf->Ln(2);
-                $pdf->Cell(0,0,'Kudus, ......................................... '.$pdf->tanggal('Y', $datasiswa->tmb_tanggal),0,1,'R');
-                $pdf->Ln(2);
+                $pdf->Ln(10);
+                $pdf->Cell(0,0,'Kudus, '.$pdf->tanggal('d M Y'),0,1,'R');
+                $pdf->Ln(10);
                 $pdf->Cell(85,5,'Petugas',0,0,'C'); $pdf->Cell(85,5,'Yang Mendaftarkan',0,1,'C');
                 $pdf->Ln(15);
                 $pdf->Cell(85,5,'(......................................................)',0,0,'C'); $pdf->Cell(85,5,'(......................................................)',0,1,'C');

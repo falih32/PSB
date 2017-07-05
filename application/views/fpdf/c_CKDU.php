@@ -26,7 +26,7 @@ $pdf->AddPage();
                 if($infaq==NULL){ $infa=""; $inf='...........................'; }else{$infa=$pdf->Terbilang($infaq->inf_daftar); $inf=$infaq->inf_daftar;}
                 
                 $pdf->SetFont('Arial','',11);
-                $pdf->Cell(50,6,'Telah terima dari wali santri',0,0,'L'); $pdf->Cell(3,6,':',0,0,'L'); $pdf->Cell(120,6,' '.$datasiswa->tmb_wali,0,1,'L');
+                $pdf->Cell(50,6,'Telah terima dari wali santri',0,0,'L'); $pdf->Cell(3,6,':',0,0,'L'); $pdf->Cell(120,6,'.........................',0,1,'L');
                 $pdf->Cell(50,6,'Nomor Pendaftaran',0,0,'L'); $pdf->Cell(3,6,':',0,0,'L'); $pdf->Cell(120,6,' '.$datasiswa->tmb_no_daftar,0,1,'L'); 
                 $pdf->Cell(50,6,'Uang sebanyak',0,0,'L'); $pdf->Cell(3,6,':',0,0,'L'); $pdf->Cell(120,6,$infa.'rupiah',0,1,'L');
                 $pdf->Cell(50,6,'Guna membayar',0,0,'L'); $pdf->Cell(3,6,':',0,0,'L'); $pdf->Cell(120,6,' Infaq Madrasah Qudsiyyah Kudus (Daftar Ulang)',0,1,'L');

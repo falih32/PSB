@@ -108,7 +108,6 @@ class VerPendaftaran extends CI_Controller {
         
         $data['tmb_nama']    = $this->input->post('tmb_nama');
         $data['tmb_nisn']    = $this->input->post('tmb_nisn');
-        $data['tmb_nisa']    = $this->input->post('tmb_nisa');
         $data['tmb_tempatL']    = $this->input->post('tmb_tempatL');
         $data['tmb_ttl']    = $this->input->post('tmb_ttl');
         $data['tmb_sdrk']    = $this->input->post('tmb_sdrk');
@@ -118,7 +117,10 @@ class VerPendaftaran extends CI_Controller {
         $data['tmb_alamat']    = $this->input->post('tmb_alamat');
         $data['tmb_kec']    = $this->input->post('tmb_kec');
         $data['tmb_kota']    = $this->input->post('tmb_kota');
-        $data['tmb_telp']    = $this->input->post('tmb_telp');
+        $data['tmb_hobi']    = $this->input->post('tmb_hobi');
+        $data['tmb_cita']    = $this->input->post('tmb_cita');
+        $data['tmb_transport']    = $this->input->post('tmb_transport');
+        $data['tmb_jarak']    = $this->input->post('tmb_jarak');
         $data['tmb_ayah']    = $this->input->post('tmb_ayah');
         $data['tmb_pnd_ayah']    = $this->input->post('tmb_pnd_ayah');
         $data['tmb_pek_ayah']    = $this->input->post('tmb_pek_ayah');
@@ -137,11 +139,6 @@ class VerPendaftaran extends CI_Controller {
         $data['tmb_pek_ibu']    = $this->input->post('tmb_pek_ibu');
         $data['tmb_agm_ibu']    = $this->input->post('tmb_agm_ibu');
         $data['tmb_peng_ibu']    = preg_replace("/[^0-9]/", "", $pengibu);
-        $data['tmb_wali']    = $this->input->post('tmb_wali');
-        $data['tmb_alamat_wali']    = $this->input->post('tmb_alamat_wali');
-        $data['tmb_kec_wali']    = $this->input->post('tmb_kec_wali');
-        $data['tmb_kota_wali']    = $this->input->post('tmb_kota_wali');
-        $data['tmb_telp_wali']    = $this->input->post('tmb_telp_wali');
         $data['tmb_skl_asl']    = $this->input->post('tmb_skl_asl');
         $data['tmb_alm_skl']    = $this->input->post('tmb_alm_skl');
         $data['tmb_kelas']    = $this->input->post('tmb_kelas');
@@ -224,7 +221,7 @@ class VerPendaftaran extends CI_Controller {
         }
         if($this->upload->do_upload('tmb_rapor')){
             $img_data=$this->upload->data();
-            $new_imgname='Rapor/Ijasah_'.$data['tmb_no_daftar'].''.$img_data['file_ext'];
+            $new_imgname='Rapor_'.$data['tmb_no_daftar'].''.$img_data['file_ext'];
             $data['tmb_rapor']=$new_imgname;
             $new_imgpath=$img_data['file_path'].$new_imgname;
             rename($img_data['full_path'], $new_imgpath);
@@ -291,7 +288,7 @@ class VerPendaftaran extends CI_Controller {
         
         if($this->upload->do_upload('tmb_kk')){
             $img_data=$this->upload->data();
-            $new_imgname='Ijasah_'.$data['tmb_no_daftar'].''.$img_data['file_ext'];
+            $new_imgname='KK_'.$data['tmb_no_daftar'].''.$img_data['file_ext'];
             $data['tmb_kk']=$new_imgname;
             $new_imgpath=$img_data['file_path'].$new_imgname;
             rename($img_data['full_path'], $new_imgpath);
@@ -347,7 +344,7 @@ class VerPendaftaran extends CI_Controller {
     function Verifikasi($id){
         
         $diterimadi="";
-        if(($this->input->post('tmb_kelompok')==1)||($this->input->post('tmb_kelompok')==1)){
+        if(($this->input->post('tmb_kelompok')==1)||($this->input->post('tmb_kelompok')==2)){
             $sts=2;
             $umur=date_diff(date_create($this->input->post('tmb_ttl')), date_create('today'))->y;
             if($umur > 6){

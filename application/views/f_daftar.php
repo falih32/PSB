@@ -9,12 +9,12 @@
             
                 <div class="col-md-6">
                  <div class="form-group">
-                    <label for="" class="col-sm-3 control-label text-left">A. CALON SISWA</label>    
+                    <label for="" class="col-sm-3 control-label text-left">A. CALON SANTRI</label>    
                  </div>   
                     <div class="form-group">
                         <label for="tmb_nama" class="col-sm-4 control-label text-left">Nama Lengkap</label>
                         <div class="col-sm-8">
-	                        <input type="text" class="form-control" id="tmb_nama" name="tmb_nama" placeholder="Nama Calon Siswa" value="" required>
+	                        <input type="text" class="form-control" id="tmb_nama" name="tmb_nama" placeholder="Nama Calon Santri" value="" required>
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
@@ -22,18 +22,12 @@
                 <div class="form-group">
                         <label for="tmb_nama" class="col-sm-4 control-label text-left">Nomor Induk Nasional</label>
                         <div class="col-sm-6">
-	                        <input type="text" class="form-control" id="tmb_nisn" name="tmb_nisn" placeholder="Nomor Induk Siswa Nasional" value="" pattern='[0-9]*' >
+	                        <input type="text" class="form-control" id="tmb_nisn" name="tmb_nisn" placeholder="Nomor Induk Santri Nasional" value="" pattern='[0-9]*' >
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
                 
-                    <div class="form-group">
-                        <label for="tmb_nama" class="col-sm-4 control-label text-left">Nomor Induk Sekolah Asal</label>
-                        <div class="col-sm-6">
-	                        <input type="text" class="form-control" id="tmb_nisa" name="tmb_nisa" placeholder="Nomor Induk Sekolah Asal" value="" pattern='[0-9]*'>
-                            <div class="help-block with-errors"></div>
-                        </div>
-                    </div>
+                    
                     <div class="form-group">
                         <label for="tmb_ttl" class="col-sm-4 control-label text-left">Tempat dan Tanggal Lahir</label>
                         <div class="col-sm-4">
@@ -79,7 +73,7 @@
                     <div class="form-group">
                         <label for="tmb_alamat" class="col-sm-4 control-label text-left">Alamat</label>
                         <div class="col-sm-8">
-	                        <input type="text" class="form-control" id="tmb_alamat" name="tmb_alamat" placeholder="Jalan Desa Kecamatan Kodepos Calon Siswa Tinggal" value="" required>
+	                        <input type="text" class="form-control" id="tmb_alamat" name="tmb_alamat" placeholder="Jalan Desa Kecamatan Kodepos Calon Santri Tinggal" value="" required>
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
@@ -96,10 +90,47 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="tmb_alamat" class="col-sm-4 control-label text-left">Telpon</label>
+                        <label for="tmb_alamat" class="col-sm-4 control-label text-left">Cita-Cita</label>
                         <div class="col-sm-8">
-	                        <input type="text" class="form-control" id="tmb_telp" name="tmb_telp" placeholder="Nomor Telpon Calon Siswa" value="" pattern='[0-9]*'>
+	                        <input type="text" class="form-control" id="tmb_cita" name="tmb_cita" placeholder="Cita-Cita Calon Santri" value="">
                             <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="tmb_alamat" class="col-sm-4 control-label text-left">Hobi</label>
+                        <div class="col-sm-8">
+	                        <input type="text" class="form-control" id="tmb_hobi" name="tmb_hobi" placeholder="Hobi Calon Santri" value="">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="tmb_transport" class="col-sm-4 control-label text-left">Transport</label>
+                        <div class="col-sm-6">
+                            <select class="form-control" id="tmb_transport" name="tmb_transport" required >
+                                    <option value="">Select ...</option>
+                                    <option value="0">Jalan Kaki</option>
+                                    <option value="1">Sepeda</option>
+                                    <option value="2">Motor</option>
+                                    <option value="3">Mobil Pribadi</option>
+                                    <option value="4">Antar Jemput Sekolah</option>
+                                    <option value="5">Angkutan Umum</option>
+                                </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="tmb_jarak" class="col-sm-4 control-label text-left">Jarak</label>
+                        <div class="col-sm-6">
+                            <select class="form-control" id="tmb_jarak" name="tmb_jarak" required >
+                                    <option value="">Select ...</option>
+                                    <option value="0">0-1 km</option>
+                                    <option value="1">1-3 km</option>
+                                    <option value="2">3-5 km</option>
+                                    <option value="3">5-10 km</option>
+                                    <option value="4">Lebih dari 10 km</option>
+                                </select>
                         </div>
                     </div>
                     
@@ -218,7 +249,7 @@
                
                  <div class="col-md-6">
                  <div class="form-group">
-                    <label for="" class="col-sm-3 control-label text-left">B. ORANG TUA</label>    
+                    <label for="" class="col-sm-3 control-label text-left">B. ORANG TUA/WALI </label>    
                  </div>
                      
                     <div class="form-group">
@@ -313,44 +344,7 @@
                         </div>
                     </div>
                      
-                 <div class="form-group">
-                    <label for="" class="col-sm-2 control-label text-left">C. WALI</label>    
-                 </div>   
-                    <div class="form-group">
-                        <label for="tmb_nama_wali" class="col-sm-4 control-label text-left">Nama Wali</label>
-                        <div class="col-sm-8">
-	                        <input type="text" class="form-control" id="tmb_wali" name="tmb_wali" placeholder="Nama Lengkap Wali" value="">
-                            <div class="help-block with-errors"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="tmb_alamat" class="col-sm-4 control-label text-left">Alamat</label>
-                        <div class="col-sm-8">
-	                        <input type="text" class="form-control" id="tmb_alamat_wali" name="tmb_alamat_wali" placeholder="Nama Jalan, Desa, Kodepos Wali Tinggal" value="" >
-                            <div class="help-block with-errors"></div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="tmb_alamat" class="col-sm-2 control-label text-left">Kecamatan</label>
-                        <div class="col-sm-4">
-	                        <input type="text" class="form-control" id="tmb_kec_wali" name="tmb_kec_wali" placeholder="Kecamatan" value="" >
-                            <div class="help-block with-errors"></div>
-                        </div>
-                        <label for="tmb_alamat" class="col-sm-2 control-label text-left">Kota/Kab.</label>
-                        <div class="col-sm-4">
-	                        <input type="text" class="form-control" id="tmb_kota_wali" name="tmb_kota_wali" placeholder="Kota / Kabupaten" value="">
-                            <div class="help-block with-errors"></div>
-                        </div>
-                    </div>
-                     
-                    <div class="form-group">
-                        <label for="tmb_alamat" class="col-sm-4 control-label text-left">Telpon</label>
-                        <div class="col-sm-8">
-	                        <input type="text" class="form-control" id="tmb_telp_wali" name="tmb_telp_wali" placeholder="Nomor Telpon Wali yang bisa dihubungi" value="" pattern='[0-9]*'>
-                            <div class="help-block with-errors"></div>
-                        </div>
-                    </div> 
+                 
                  
                     <div class="g-recaptcha" data-sitekey="6Le7oyEUAAAAAI0IdY4ugkZcoe13u2Y5uYj090K5"></div>   
 <!--                     6LdGVxQUAAAAAOCy7ShTfVAzbabiDNmz-SWbGS8B                  -->

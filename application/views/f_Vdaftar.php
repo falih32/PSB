@@ -4,7 +4,6 @@
         $tmb_no_daftar=$data->tmb_no_daftar;
         $tmb_nama=$data->tmb_nama;
         $tmb_nisn=$data->tmb_nisn;
-        $tmb_nisa=$data->tmb_nisa;
         $tmb_tempatL=$data->tmb_tempatL;
         $tmb_ttl=$data->tmb_ttl;
         $tmb_sdrk=$data->tmb_sdrk;
@@ -14,7 +13,10 @@
         $tmb_alamat=$data->tmb_alamat;
         $tmb_kec=$data->tmb_kec;
         $tmb_kota=$data->tmb_kota;
-        $tmb_telp=$data->tmb_telp;
+        $tmb_hobi=$data->tmb_hobi;
+        $tmb_cita=$data->tmb_cita;
+        $tmb_transport=$data->tmb_transport;
+        $tmb_jarak=$data->tmb_jarak;
         $tmb_ayah=$data->tmb_ayah;
         $tmb_pnd_ayah=$data->tmb_pnd_ayah;
         $tmb_pek_ayah=$data->tmb_pek_ayah;
@@ -29,11 +31,7 @@
         $tmb_pek_ibu=$data->tmb_pek_ibu;
         $tmb_agm_ibu=$data->tmb_agm_ibu;
         $tmb_peng_ibu=$data->tmb_peng_ibu;
-        $tmb_wali=$data->tmb_wali;
-        $tmb_alamat_wali=$data->tmb_alamat_wali;
-        $tmb_kec_wali=$data->tmb_kec_wali;
-        $tmb_kota_wali=$data->tmb_kota_wali;
-        $tmb_telp_wali=$data->tmb_telp_wali;
+        
         $tmb_skl_asl=$data->tmb_skl_asl;
         $tmb_alm_skl=$data->tmb_alm_skl;
         $tmb_kelas=$data->tmb_kelas;
@@ -47,7 +45,6 @@
         $tmb_no_daftar="";
         $tmb_nama="";
         $tmb_nisn="";
-        $tmb_nisa="";
         $tmb_tempatL="";
         $tmb_ttl="";
         $tmb_sdrk="";
@@ -57,7 +54,10 @@
         $tmb_alamat="";
         $tmb_kec="";
         $tmb_kota="";
-        $tmb_telp="";
+        $tmb_hobi="";
+        $tmb_cita="";
+        $tmb_transport="";
+        $tmb_jarak="";
         $tmb_ayah="";
         $tmb_pnd_ayah="";
         $tmb_pek_ayah="";
@@ -72,11 +72,7 @@
         $tmb_pek_ibu="";
         $tmb_agm_ibu="";
         $tmb_peng_ibu="";
-        $tmb_wali="";
-        $tmb_alamat_wali="";
-        $tmb_kec_wali="";
-        $tmb_kota_wali="";
-        $tmb_telp_wali="";
+        
         $tmb_skl_asl="";
         $tmb_alm_skl="";
         $tmb_kelas="";
@@ -134,13 +130,7 @@
                         </div>
                     </div>
                 
-                    <div class="form-group">
-                        <label for="tmb_nama" class="col-sm-4 control-label text-left">Nomor Induk Sekolah Asal</label>
-                        <div class="col-sm-6">
-	                        <input type="text" class="form-control" id="tmb_nisa" name="tmb_nisa" placeholder="Nomor Induk Sekolah Asal" value="<?php echo $tmb_nisa;?>" pattern='[0-9]*'>
-                            <div class="help-block with-errors"></div>
-                        </div>
-                    </div>
+                   
                     <div class="form-group">
                         <label for="tmb_ttl" class="col-sm-4 control-label text-left">Tempat dan Tanggal Lahir</label>
                         <div class="col-sm-4">
@@ -202,13 +192,51 @@
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="tmb_alamat" class="col-sm-4 control-label text-left">Telpon</label>
+                     <div class="form-group">
+                        <label for="tmb_alamat" class="col-sm-4 control-label text-left">Cita-Cita</label>
                         <div class="col-sm-8">
-	                        <input type="text" class="form-control" id="tmb_telp" name="tmb_telp" placeholder="Nomor Telpon Calon Siswa" value="<?php echo $tmb_telp; ?>" pattern='[0-9]*'>
+	                        <input type="text" class="form-control" id="tmb_cita" name="tmb_cita" placeholder="Cita-Cita Calon Santri" value="<?php echo $tmb_cita; ?>">
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
+                    
+                    <div class="form-group">
+                        <label for="tmb_alamat" class="col-sm-4 control-label text-left">Hobi</label>
+                        <div class="col-sm-8">
+	                        <input type="text" class="form-control" id="tmb_hobi" name="tmb_hobi" placeholder="Hobi Calon Santri" value="<?php echo $tmb_hobi; ?>">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+                    
+                     <div class="form-group">
+                        <label for="tmb_transport" class="col-sm-4 control-label text-left">Transport</label>
+                        <div class="col-sm-6">
+                            <select class="form-control" id="tmb_transport" name="tmb_transport" required >
+                                    <option value="">Select ...</option>
+                                    <option value="0"<?php if($tmb_transport==0){echo "selected";}?>>Jalan Kaki</option>
+                                    <option value="1"<?php if($tmb_transport==1){echo "selected";}?>>Sepeda</option>
+                                    <option value="2"<?php if($tmb_transport==2){echo "selected";}?>>Motor</option>
+                                    <option value="3"<?php if($tmb_transport==3){echo "selected";}?>>Mobil Pribadi</option>
+                                    <option value="4"<?php if($tmb_transport==4){echo "selected";}?>>Antar Jemput Sekolah</option>
+                                    <option value="5"<?php if($tmb_transport==5){echo "selected";}?>>Angkutan Umum</option>
+                                </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="tmb_jarak" class="col-sm-4 control-label text-left">Jarak</label>
+                        <div class="col-sm-6">
+                            <select class="form-control" id="tmb_jarak" name="tmb_jarak" required >
+                                    <option value="">Select ...</option>
+                                    <option value="0"<?php if($tmb_jarak==0){echo "selected";}?>>0-1 km</option>
+                                    <option value="1"<?php if($tmb_jarak==1){echo "selected";}?>>1-3 km</option>
+                                    <option value="2"<?php if($tmb_jarak==2){echo "selected";}?>>3-5 km</option>
+                                    <option value="3"<?php if($tmb_jarak==3){echo "selected";}?>>5-10 km</option>
+                                    <option value="4"<?php if($tmb_jarak==4){echo "selected";}?>>Lebih dari 10 km</option>
+                                </select>
+                        </div>
+                    </div>
+                    
                     
                      <div class="form-group">
                         <label for="tmb_kelas" class="col-sm-4 control-label text-left">Dari Kelas</label>
@@ -432,46 +460,7 @@
                         </div>
                     </div>
                      
-                 <div class="form-group">
-                    <label for="" class="col-sm-2 control-label text-left">C. WALI</label>    
-                 </div>   
-                    <div class="form-group">
-                        <label for="tmb_nama_wali" class="col-sm-4 control-label text-left">Nama Wali</label>
-                        <div class="col-sm-8">
-	                        <input type="text" class="form-control" id="tmb_wali" name="tmb_wali" placeholder="Nama Lengkap Wali" value="<?php echo $tmb_wali; ?>">
-                            <div class="help-block with-errors"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="tmb_alamat" class="col-sm-4 control-label text-left">Alamat</label>
-                        <div class="col-sm-8">
-	                        <input type="text" class="form-control" id="tmb_alamat_wali" name="tmb_alamat_wali" placeholder="Nama Jalan, Desa, Kodepos Wali Tinggal" value="<?php echo $tmb_alamat_wali; ?>" >
-                            <div class="help-block with-errors"></div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="tmb_alamat" class="col-sm-2 control-label text-left">Kecamatan</label>
-                        <div class="col-sm-4">
-	                        <input type="text" class="form-control" id="tmb_kec_wali" name="tmb_kec_wali" placeholder="Kecamatan" value="<?php echo $tmb_kec_wali; ?>" >
-                            <div class="help-block with-errors"></div>
-                        </div>
-                        <label for="tmb_alamat" class="col-sm-2 control-label text-left">Kota/Kab.</label>
-                        <div class="col-sm-4">
-	                        <input type="text" class="form-control" id="tmb_kota_wali" name="tmb_kota_wali" placeholder="Kota / Kabupaten" value="<?php echo $tmb_kota_wali; ?>">
-                            <div class="help-block with-errors"></div>
-                        </div>
-                    </div>
-                     
-                    <div class="form-group">
-                        <label for="tmb_alamat" class="col-sm-4 control-label text-left">Telpon</label>
-                        <div class="col-sm-8">
-	                        <input type="text" class="form-control" id="tmb_telp_wali" name="tmb_telp_wali" placeholder="Nomor Telpon Wali yang bisa dihubungi" value="<?php echo $tmb_telp_wali; ?>" pattern='[0-9]*'>
-                            <div class="help-block with-errors"></div>
-                        </div>
-                    </div> 
-                                         
-                </div>
+                 
                 
                 
                 <div class="col-md-12 text-center"><hr>

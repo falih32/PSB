@@ -3,7 +3,6 @@
         $tmb_no_daftar=$data->tmb_no_daftar;
         $tmb_nama=$data->tmb_nama;
         $tmb_nisn=$data->tmb_nisn;
-        $tmb_nisa=$data->tmb_nisa;
         $tmb_tempatL=$data->tmb_tempatL;
         $tmb_ttl=$data->tmb_ttl;
         $tmb_sdrk=$data->tmb_sdrk;
@@ -13,7 +12,10 @@
         $tmb_alamat=$data->tmb_alamat;
         $tmb_kec=$data->tmb_kec;
         $tmb_kota=$data->tmb_kota;
-        $tmb_telp=$data->tmb_telp;
+        $tmb_hobi=$data->tmb_hobi;
+        $tmb_cita=$data->tmb_cita;
+        $tmb_transport=$data->tmb_transport;
+        $tmb_jarak=$data->tmb_jarak;
         $tmb_ayah=$data->tmb_ayah;
         $tmb_pnd_ayah=$data->tmb_pnd_ayah;
         $tmb_pek_ayah=$data->tmb_pek_ayah;
@@ -28,11 +30,6 @@
         $tmb_pek_ibu=$data->tmb_pek_ibu;
         $tmb_agm_ibu=$data->tmb_agm_ibu;
         $tmb_peng_ibu=$data->tmb_peng_ibu;
-        $tmb_wali=$data->tmb_wali;
-        $tmb_alamat_wali=$data->tmb_alamat_wali;
-        $tmb_kec_wali=$data->tmb_kec_wali;
-        $tmb_kota_wali=$data->tmb_kota_wali;
-        $tmb_telp_wali=$data->tmb_telp_wali;
         $tmb_skl_asl=$data->tmb_skl_asl;
         $tmb_alm_skl=$data->tmb_alm_skl;
         $tmb_kelas=$data->tmb_kelas;
@@ -47,7 +44,7 @@
     <div class="row-fluid">
     	<div class="panel panel-info">
             <div class="panel-heading">
-                <h3>Vrifikasi Calon Siswa</h3>
+                <h3>Detail Calon Santri</h3>
             </div>
             <div class="panel-body">
                 <div class="table-responsive">
@@ -64,10 +61,6 @@
                     	<tr>
                         	<th>NISN</th>
                         	<td colspan="2"><?php echo $tmb_nisn; ?></td>
-                        </tr>
-                        <tr>
-                        	<th>Nomor Induk Sekolah Asal</th>
-                        	<td colspan="2"><?php echo $tmb_nisa; ?></td>
                         </tr>
                        
                         <tr>
@@ -93,9 +86,51 @@
                                 <td colspan="2"><?php echo $tmb_alamat." Kecamatan ".$tmb_kec." Kabupaten/Kota ".$tmb_kota; ?></td>
                         </tr>
                         <tr>
-                        	<th>Telpon</th>
-                                <td colspan="2"><?php echo $tmb_telp; ?></td>
+                        	<th>Hobi</th>
+                        	<td colspan="2"><?php echo $tmb_hobi; ?></td>
                         </tr>
+                        <tr>
+                        	<th>Cita-Cita</th>
+                        	<td colspan="2"><?php echo $tmb_cita; ?></td>
+                        </tr>
+                        <tr>
+                        	<th>Transport</th>
+                        	<td colspan="2"><?php 
+                                   if($tmb_transport == 0){
+                                       echo "Jalan Kaki";
+                                   }else if($tmb_transport == 1){
+                                       echo "Sepeda";
+                                   }else if($tmb_transport ==2){
+                                       echo "Motor";
+                                   }else if($tmb_transport ==3){
+                                       echo "Mobil Pribadi";
+                                   }else if($tmb_kelas ==4){
+                                       echo "Antar Jemput";
+                                   }else if($tmb_kelas ==5){
+                                       echo "Angkutan Umum";
+                                   }
+                                ?>
+                                </td>
+                        </tr>
+                        
+                        <tr>
+                        	<th>Jarak</th>
+                        	<td colspan="2"><?php 
+                                    if($tmb_jarak == 0){
+                                         echo "0-1 KM";
+                                     }else if($tmb_jarak == 1){
+                                         echo "1-3 KM";
+                                     }else if($tmb_jarak ==2){
+                                         echo "3-5 KM";
+                                     }else if($tmb_jarak ==3){
+                                         echo "5-10 KM";
+                                     }else if($tmb_jarak ==4){
+                                         echo "Lebih dari 10 KM";
+                                     }
+                                ?>
+                                </td>
+                        </tr>
+                        
                         <tr>
                         	<th>Foto</th>
                         	<td>
@@ -116,7 +151,7 @@
                         <tr>
                         	<th>Kartu Keluarga</th>
                         	<td>
-                            	<?php if ($tmb_akte == ""){echo "<i>Tidak ada file yang diunggah</i>";} else {?>
+                            	<?php if ($tmb_kk == ""){echo "<i>Tidak ada file yang diunggah</i>";} else {?>
                                 <a class="btn btn-default" target="_blank" href="<?php echo base_url()."uploads/files/".$tmb_kk; ?>"><span class="glyphicon glyphicon-new-window" aria-hidden="true"></span> Buka file</a>
                                 <?php } ?>
                             </td>
@@ -124,7 +159,7 @@
                         <tr>
                         	<th>Rapor / Ijasah</th>
                         	<td>
-                            	<?php if ($tmb_akte == ""){echo "<i>Tidak ada file yang diunggah</i>";} else {?>
+                            	<?php if ($tmb_rapor == ""){echo "<i>Tidak ada file yang diunggah</i>";} else {?>
                                 <a class="btn btn-default" target="_blank" href="<?php echo base_url()."uploads/files/".$tmb_rapor; ?>"><span class="glyphicon glyphicon-new-window" aria-hidden="true"></span> Buka file</a>
                                 <?php } ?>
                             </td>
@@ -162,18 +197,7 @@
                         	<th>No. Telpon Orang Tua</th>
                                 <td colspan="2" ><?php echo $tmb_telp_ortu; ?></td>
                         </tr>
-                        <tr>
-                        	<th>Nama Wali</th>
-                                <td colspan="2" ><?php echo $tmb_wali; ?></td>
-                        </tr>
-                        <tr>
-                        	<th>Alamat Wali</th>
-                                <td colspan="2" ><?php echo $tmb_alamat_wali." Kecamatan ".$tmb_kec_wali." Kabupaten/Kota ".$tmb_kota_wali; ?></td>
-                        </tr>
-                        <tr>
-                        	<th>No. Telpon Wali</th>
-                                <td colspan="2" ><?php echo $tmb_telp_wali; ?></td>
-                        </tr>
+                        
                         <tr>
                         	<th>Nama Sekolah Asal</th>
                                 <td><?php echo $tmb_skl_asl; ?></td>

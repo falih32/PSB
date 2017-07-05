@@ -4,7 +4,6 @@
         $tmb_no_daftar=$data->tmb_no_daftar;
         $tmb_nama=$data->tmb_nama;
         $tmb_nisn=$data->tmb_nisn;
-        $tmb_nisa=$data->tmb_nisa;
         $tmb_tempatL=$data->tmb_tempatL;
         $tmb_ttl=$data->tmb_ttl;
         $tmb_sdrk=$data->tmb_sdrk;
@@ -14,7 +13,10 @@
         $tmb_alamat=$data->tmb_alamat;
         $tmb_kec=$data->tmb_kec;
         $tmb_kota=$data->tmb_kota;
-        $tmb_telp=$data->tmb_telp;
+        $tmb_hobi=$data->tmb_hobi;
+        $tmb_cita=$data->tmb_cita;
+        $tmb_transport=$data->tmb_transport;
+        $tmb_jarak=$data->tmb_jarak;
         $tmb_ayah=$data->tmb_ayah;
         $tmb_pnd_ayah=$data->tmb_pnd_ayah;
         $tmb_pek_ayah=$data->tmb_pek_ayah;
@@ -29,11 +31,7 @@
         $tmb_pek_ibu=$data->tmb_pek_ibu;
         $tmb_agm_ibu=$data->tmb_agm_ibu;
         $tmb_peng_ibu=$data->tmb_peng_ibu;
-        $tmb_wali=$data->tmb_wali;
-        $tmb_alamat_wali=$data->tmb_alamat_wali;
-        $tmb_kec_wali=$data->tmb_kec_wali;
-        $tmb_kota_wali=$data->tmb_kota_wali;
-        $tmb_telp_wali=$data->tmb_telp_wali;
+        
         $tmb_skl_asl=$data->tmb_skl_asl;
         $tmb_alm_skl=$data->tmb_alm_skl;
         $tmb_kelas=$data->tmb_kelas;

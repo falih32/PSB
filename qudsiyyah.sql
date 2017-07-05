@@ -1,7 +1,7 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : koneksi
+Source Server         : koneksiku
 Source Server Version : 50621
 Source Host           : localhost:3306
 Source Database       : qudsiyyah
@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50621
 File Encoding         : 65001
 
-Date: 2017-05-18 20:22:40
+Date: 2017-07-05 20:57:14
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -67,7 +67,6 @@ CREATE TABLE `t_calon_siswa` (
   `tmb_no_daftar` varchar(255) NOT NULL,
   `tmb_nama` varchar(30) NOT NULL,
   `tmb_nisn` varchar(30) NOT NULL,
-  `tmb_nisa` varchar(20) NOT NULL,
   `tmb_tempatL` varchar(20) NOT NULL,
   `tmb_ttl` date NOT NULL,
   `tmb_sdrk` int(2) NOT NULL,
@@ -77,7 +76,6 @@ CREATE TABLE `t_calon_siswa` (
   `tmb_alamat` varchar(255) NOT NULL,
   `tmb_kec` varchar(30) NOT NULL,
   `tmb_kota` varchar(30) NOT NULL,
-  `tmb_telp` varchar(30) NOT NULL,
   `tmb_ayah` varchar(30) NOT NULL,
   `tmb_pnd_ayah` varchar(30) NOT NULL,
   `tmb_pek_ayah` varchar(30) NOT NULL,
@@ -92,11 +90,6 @@ CREATE TABLE `t_calon_siswa` (
   `tmb_pek_ibu` varchar(30) NOT NULL,
   `tmb_agm_ibu` varchar(30) NOT NULL,
   `tmb_peng_ibu` int(30) NOT NULL,
-  `tmb_wali` varchar(30) NOT NULL,
-  `tmb_alamat_wali` varchar(30) NOT NULL,
-  `tmb_kec_wali` varchar(30) NOT NULL,
-  `tmb_kota_wali` varchar(30) NOT NULL,
-  `tmb_telp_wali` varchar(30) NOT NULL,
   `tmb_skl_asl` varchar(30) DEFAULT NULL,
   `tmb_alm_skl` varchar(30) DEFAULT NULL,
   `tmb_kelas` varchar(30) NOT NULL,
@@ -111,15 +104,21 @@ CREATE TABLE `t_calon_siswa` (
   `tmb_tanggal` date NOT NULL,
   `tmb_status` int(2) NOT NULL DEFAULT '0' COMMENT '0:blm verifikasi pedaftaran 1:blm tes 2:blm daftar ulang 3:siswa baru',
   `tmb_keterangan` varchar(255) DEFAULT NULL,
+  `tmb_hobi` varchar(255) DEFAULT NULL,
+  `tmb_cita` varchar(255) DEFAULT NULL,
+  `tmb_transport` tinyint(255) DEFAULT NULL,
+  `tmb_jarak` tinyint(255) DEFAULT NULL,
   PRIMARY KEY (`tmb_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=28 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=30 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of t_calon_siswa
 -- ----------------------------
-INSERT INTO `t_calon_siswa` VALUES ('26', 'L17.0002', 'Mujiono', '3131133131', '1212113333', 'Kudus', '2009-10-14', '1', '1', '1', '1', 'Krandon 5/1 amnsanms ansa,nsman asna,sn,ans anskahsahs ahashahska ahskshkahskah sakskajskaj akshakshkah akjsahskahks', 'Kota', 'Kudus', '085641734340', 'Muji', 'Magister', 'Dosen', 'Islam', '23332111', 'Mampang 2451', 'klasklsk', 'DKI JAKART', '0217363728', 'Jaya', 'SMA', 'Buruh', 'Islam', '1212121', 'Mujiono', '', '', '', '', 'SD Bina Nusantara', 'Jakarta 54628', '4', 'Foto_L17.0002.jpeg', 'Akte_L17.0002.pdf', 'Ijasah_L17.0002.pdf', 'Rapor_L17.0002.pdf', '50', '2', '0', '3', '2016-03-01', '0', 'Belum mengumpulkan foto');
-INSERT INTO `t_calon_siswa` VALUES ('25', 'L17.0001', 'Sugiantoro', '55555', '4312121', 'Kudus', '2010-04-15', '1', '1', '1', '1', '1', '1', '11', '11', '111', '111', '1111', '1111', '11111', '111', '11', '111', '1111', '111', '111', '111', '1111', '1111', '', '', '', '', '', null, null, '-1', 'Foto_L17.0001.jpg', 'Akte_L17.0001.jpg', 'Ijasah_L17.0001.jpg', 'Rapor_L17.0001.jpg', null, '1b', '0', '1', '2017-05-08', '3', 'dsda');
-INSERT INTO `t_calon_siswa` VALUES ('27', 'L17.0003', 'Sasuke', '55555', '4312121', 'Kudus', '2009-10-14', '1', '1', '1', '1', '1111', 'Kota', 'Kudus', '085641734340', 'Paijo', 'SMA', 'Dosen', 'Islam', '122121', 'Mampang 2451', 'klasklsk', 'DKI JAKARTA', '0217363728', 'Sulastri', 'SMA', 'Wiarausaha', 'Islam', '1221212', 'Paijo', 'Mampang', 'PANCORAN', 'DKI JAKARTA', '02918178787', 'RA NU BANAT', 'Jakarta 54628', '3', 'Foto_L17.0003.jpg', 'Akte_L17.0003.jpg', 'KK_L17.0003.jpg', 'Rapor/Ijasah_L17.0003.jpg', null, '', '0', '3', '2017-05-17', '1', 'Belom melengkapi Ijasah');
+INSERT INTO `t_calon_siswa` VALUES ('26', 'L17.0002', 'Mujiono', '3131133131', 'Kudus', '2009-10-14', '1', '1', '1', '1', 'Krandon 5/1 amnsanms ansa,nsman asna,sn,ans anskahsahs ahashahska ahskshkahskah sakskajskaj akshakshkah akjsahskahks', 'Kota', 'Kudus', 'Muji', 'Magister', 'Dosen', 'Islam', '23332111', 'Mampang 2451', 'klasklsk', 'DKI JAKART', '0217363728', 'Jaya', 'SMA', 'Buruh', 'Islam', '1212121', 'SD Bina Nusantara', 'Jakarta 54628', '4', 'Foto_L17.0002.jpeg', 'Akte_L17.0002.pdf', 'Ijasah_L17.0002.pdf', 'Rapor_L17.0002.pdf', '50', '2', '0', '3', '2016-03-01', '0', 'Belum mengumpulkan foto', null, null, null, null);
+INSERT INTO `t_calon_siswa` VALUES ('25', 'L17.0001', 'Sugiantoro', '55555', 'Kudus', '2010-04-15', '1', '1', '1', '1', '1', '1', '11', '111', '111', '1111', '1111', '11111', '111', '11', '111', '1111', '111', '111', '111', '1111', '1111', null, null, '-1', 'Foto_L17.0001.jpg', 'Akte_L17.0001.jpg', 'Ijasah_L17.0001.jpg', 'Rapor_L17.0001.jpg', null, '1b', '0', '1', '2017-05-08', '3', 'dsda', null, null, null, null);
+INSERT INTO `t_calon_siswa` VALUES ('27', 'L17.0003', 'Sasuke', '55555', 'Kudus', '2009-10-14', '1', '1', '1', '1', '1111', 'Kota', 'Kudus', 'Paijo', 'SMA', 'Dosen', 'Islam', '122121', 'Mampang 2451', 'klasklsk', 'DKI JAKARTA', '0217363728', 'Sulastri', 'SMA', 'Wiarausaha', 'Islam', '1221212', 'RA NU BANAT', 'Jakarta 54628', '3', 'Foto_L17.0003.jpg', 'Akte_L17.0003.jpg', 'KK_L17.0003.jpg', '', null, '', '0', '3', '2017-05-17', '1', 'Belom melengkapi Ijasah', null, null, null, null);
+INSERT INTO `t_calon_siswa` VALUES ('28', 'L17.0004', 'Sumantoko', '222121', 'Demak', '2010-07-01', '1', '1', '1', '1', 'Desa Ngslor Ngidul Sutikno Husodo', 'Mijen', 'Demak', 'Sukijan', 'Sarjana', 'PNS', 'ISlam', '3000000', 'Desa Ngslor Ngidul Sutikno Hus', 'MIjen ', 'Demak', '085641723234', 'Sumonten', 'SD', 'Buruh', 'ISalam', '2000000', 'Banat Nu Kudus', 'Jl Kh Arwani No.5 5/1 Kudus', '0', 'Foto_L17.0004.jpg', 'Akte_L17.0004.jpg', 'KK_L17.0004.jpg', 'Rapor_L17.0004.jpg', null, '1b', '0', '2', '2017-07-05', '0', 'Testing', 'Main Bola', 'Presiden', '1', '3');
+INSERT INTO `t_calon_siswa` VALUES ('29', 'L17.0005', 'Bambang Tri Harmoko', '1291020102010', 'Kudus', '2009-07-01', '1', '1', '1', '1', 'Krandon 5/1 ', 'Kota', '', 'Budi', 'SMP', 'Buruh', 'Islam', '2000000', 'Krandon 5/1 ', 'Kota ', 'Kudus', '0291435654', 'Bumisairi', 'SMA', 'Ibu Rumah Tangga', 'Islam', '1', 'MI MUAWANATUL HUDA', 'Beranjang mejobo kudus', '1', 'Foto_L17.0005.jpg', 'Akte_L17.0005.jpg', 'KK_L17.0005.jpg', 'Rapor_L17.0005.pdf', null, null, '0', '3', '2017-07-05', '0', null, 'ProGammers', 'Programmer', '0', '0');
 
 -- ----------------------------
 -- Table structure for t_infaq
